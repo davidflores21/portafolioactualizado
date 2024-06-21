@@ -1,0 +1,173 @@
+@main-color: #5b5b5b;
+@off-color: #333;
+@font-family: 'Arial', sans-serif;
+
+body {
+  font-family: @font-family;
+  color: @off-color;
+  background: #f4f4f4;
+}
+
+#loader, #content {
+  display: block;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+  max-width: 1200px;
+}
+
+header {
+  background: @main-color;
+  color: white;
+  padding: 10px 0;
+
+  .logo {
+    width: 100px;
+    float: left;
+    margin-right: 20px;
+  }
+
+  nav {
+    float: right;
+
+    ul {
+      list-style: none;
+
+      li {
+        display: inline;
+        margin-left: 10px;
+
+        a {
+          text-decoration: none;
+          color: white;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+section {
+  padding: 20px 0;
+  clear: both;
+
+  .intro, .proyecto {
+    display: flex;
+    margin-top: 20px;
+
+    img {
+      margin-right: 20px;
+      width: 200px;
+    }
+
+    .presentacion, .proyecto {
+      flex-grow: 1;
+    }
+  }
+
+  #carousel {
+    .carousel {
+      position: relative;
+
+      .carousel-image {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+
+        &.active {
+          display: block;
+        }
+      }
+
+      #loading-icon {
+        display: block;
+      }
+    }
+  }
+}
+
+footer {
+  background: @main-color;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+
+  p {
+    margin: 0;
+  }
+}
+
+// Media queries
+@media (max-width: 768px) { // Tablets y móviles grandes
+  header {
+    text-align: center;
+
+    .logo {
+      float: none;
+      display: block;
+      margin: 0 auto;
+    }
+
+    nav {
+      float: none;
+
+      ul {
+        text-align: center;
+
+        li {
+          display: block;
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+
+  .intro, .proyecto {
+    flex-direction: column;
+
+    img {
+      margin: 0 auto 20px;
+      width: 90%; // O ajusta según el diseño deseado
+    }
+  }
+
+  .container {
+    width: 95%;
+  }
+}
+
+@media (max-width: 480px) { // Teléfonos móviles
+  body {
+    font-size: 14px;
+  }
+
+  header {
+    .logo {
+      width: 80px;
+    }
+  }
+
+  section {
+    padding: 15px 0;
+
+    .intro, .proyecto {
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  footer {
+    padding: 15px 0;
+  }
+}
